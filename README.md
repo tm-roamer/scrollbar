@@ -28,8 +28,8 @@ scrollbar.js is a plugin for Browser ScrollBar, 一个轻量简单的浏览器�
 
 # 版本变化
 
-##v1.0.2
-	bug: 优化精简代码, 修正滚动冒泡队列阻止触发的错误
+##v1.2.0
+	bug: 优化精简代码, 修正滚动冒泡队列阻止触发的错误, 修改使用方式.
 
 ##v1.0.1
 	bug: 滑块hover离开之后就消失了, 但是点击拖拽的mouseup并没有开始触发, 体验不好, 修复
