@@ -1,72 +1,62 @@
-@charset "UTF-8";
 /* 外层容器 */
-.pt-scrollbar-container {
-	position: relative;
-	overflow: hidden;
-	-webkit-user-select:none;
-    -moz-user-select:none;
+.scrollbar {
+    position: relative;
+    overflow: hidden;
 }
-/* 悬停 */
-.pt-scrollbar-container[pt-scrollbar-hover] .pt-scroll-vertical-rail,
-.pt-scrollbar-container[pt-scrollbar-hover] .pt-scroll-horizontal-rail {
-	opacity: 0.1;
-}
-.pt-scrollbar-container[pt-scrollbar-hover] .pt-scroll-vertical-bar,
-.pt-scrollbar-container[pt-scrollbar-hover] .pt-scroll-horizontal-bar {
-	opacity: 0.5;
-}
+
 /* 隐藏 */
-.pt-scrollbar-container[pt-scrollbar-hide] .pt-scroll-vertical-rail,
-.pt-scrollbar-container[pt-scrollbar-hide] .pt-scroll-vertical-bar,
-.pt-scrollbar-container[pt-scrollbar-hide] .pt-scroll-horizontal-rail,
-.pt-scrollbar-container[pt-scrollbar-hide] .pt-scroll-horizontal-bar {
-	display: none;
+.scrollbar[scroll-hide] .scrollbar-vertical-rail,
+.scrollbar[scroll-hide] .scrollbar-vertical-bar,
+.scrollbar[scroll-hide] .scrollbar-horizontal-rail,
+.scrollbar[scroll-hide] .scrollbar-horizontal-bar {
+    opacity: 0;
 }
-/* 内容区 */
-.pt-scrollbar-container [pt-scrollbar-container-index] {
-	overflow: hidden;
+
+/* 滑轨 */
+.scrollbar .scrollbar-vertical-rail,
+.scrollbar .scrollbar-horizontal-rail {
+    z-index: 100;
+    position: absolute;
+    border-radius: 4px;
+    background: #000;
+    opacity: 0.1;
+    transition: opacity 0.15s ease;
 }
+
 /* 垂直滑轨 */
-.pt-scrollbar-container .pt-scroll-vertical-rail {
-	z-index: 100;
-	position: absolute;
-	width: 6px;
-	border-radius: 4px;
-	height: 100%;
-	background: #000;
-	opacity: 0;
-    transition: opacity 0.15s;
-}
-/* 垂直滑块 */
-.pt-scrollbar-container .pt-scroll-vertical-bar {
-	z-index: 101;
-	position: absolute;
+.scrollbar .scrollbar-vertical-rail {
     width: 6px;
-    border-radius: 4px;
-    background: #000;
-    opacity: 0;
-    cursor: pointer;
-    transition: opacity 0.15s;
+    top: 0;
+    bottom: 0;
+    right: 0;
 }
+
 /* 水平滑轨 */
-.pt-scrollbar-container .pt-scroll-horizontal-rail {
-	z-index: 100;
-	position: absolute;
-	height: 6px;
-	border-radius: 4px;
-	width: 100%;
-	background: #000;
-	opacity: 0;
-    transition: opacity 0.15s;
-}
-/* 水平滑块 */
-.pt-scrollbar-container .pt-scroll-horizontal-bar {
-	z-index: 101;
-	position: absolute;
+.scrollbar .scrollbar-horizontal-rail {
     height: 6px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* 滑块 */
+.scrollbar .scrollbar-vertical-bar,
+.scrollbar .scrollbar-horizontal-bar {
+    z-index: 101;
+    position: absolute;
     border-radius: 4px;
     background: #000;
-    opacity: 0;
+    opacity: 0.5;
     cursor: pointer;
-    transition: opacity 0.15s;
+    transition: opacity 0.15s ease;
+}
+
+/* 垂直滑块 */
+.scrollbar .scrollbar-vertical-bar {
+    width: 6px;
+}
+
+/* 水平滑块 */
+.scrollbar .scrollbar-horizontal-bar {
+    height: 6px;
 }
